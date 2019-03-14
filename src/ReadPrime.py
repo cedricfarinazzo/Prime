@@ -7,17 +7,18 @@ def read(name):
     liste = data.split('\n')
     a = 0
     #b = 1
-    l = 0;
+    l = -1
     for elm in liste:
-        e = int(elm)
-        a += e
-        #b *= e
-        l += 1
+        if elm != '':
+            e = int(elm)
+            a += e
+            #b *= e
+            l += 1
 
     print('Lenght :', l)
     print('Sum :', a)
     #print('Prod : ', b)
-    print('Last Prime number : ', liste[-1])
+    print('Last Prime number : ', liste[-2])
 
 def main():
     parser = argparse.ArgumentParser()

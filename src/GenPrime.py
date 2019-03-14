@@ -5,7 +5,7 @@ import argparse
 
 def gen(name):
     liste = [2,3]
-    liste1 = ["2","3"]
+    data = "2\n3\n"
     n = 4
     llen = 2
     if os.path.exists(name):
@@ -13,10 +13,11 @@ def gen(name):
             data = f.read()
         liste1 = data.split('\n')
         liste = []
-        for element in liste1:
-            liste.append(int(element))
+        for e in liste1:
+            if e != '':
+                liste.append(int(e))
         n = liste [-1] + 1
-        llen = len(liste)
+        llen = len(liste) - 1
     
     while True :
         isPrime = True
@@ -27,13 +28,12 @@ def gen(name):
             di += 1
         if isPrime:
             liste.append(n)
-            liste1.append(str(n))
+            data += str(n) + "\n"
             llen += 1
             print(n)
         n += 1
     
         if llen % 100000 == 0:
-            data = "\n".join(liste1)
             with open(name, 'w') as f:
                 f.write(data)
 
