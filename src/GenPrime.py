@@ -5,7 +5,6 @@ import argparse
 
 def gen(name):
     liste = [2,3]
-    data = "2\n3\n"
     n = 4
     llen = 2
     if os.path.exists(name):
@@ -18,6 +17,7 @@ def gen(name):
                 liste.append(int(e))
         n = liste [-1] + 1
         llen = len(liste) - 1
+    data = ''
     
     while True :
         isPrime = True
@@ -34,8 +34,9 @@ def gen(name):
         n += 1
     
         if llen % 100000 == 0:
-            with open(name, 'w') as f:
+            with open(name, 'a') as f:
                 f.write(data)
+                data = ''
 
 def main():
     parser = argparse.ArgumentParser()
